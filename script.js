@@ -152,23 +152,39 @@ function generateQuestion(){
     let [min,max] = getRange();
 
     switch(mode){
+case "subtraction":
 
-        case "subtraction":
+    if(difficulty.value==="easy"){
 
-            num1 = rand(min,max);
-            num2 = rand(min,max);
+        num1 = rand(100,999);
+        num2 = rand(10,99);
 
-            if(num2 > num1){
+    }
 
-                [num1,num2] = [num2,num1];
+    else if(difficulty.value==="medium"){
 
-            }
+        num1 = rand(1000,99999);
+        num2 = rand(100,9999);
 
-            operator = "-";
-            correctAnswer = num1 - num2;
+    }
 
-            break;
+    else{
 
+        num1 = rand(100000,999999999);
+        num2 = rand(1000,99999999);
+
+    }
+
+    if(num2 > num1){
+
+        [num1,num2] = [num2,num1];
+
+    }
+
+    operator = "-";
+    correctAnswer = num1 - num2;
+
+    break;
         case "multiplication":
 
             if(difficulty.value==="easy"){
